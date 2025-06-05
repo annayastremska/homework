@@ -132,8 +132,21 @@ some_index = int(input())
 extracted_word = (full_list.pop((some_index - 1))).capitalize()
 
 # task 4
-new_numbers = [1, 1, 5, 21, 7, 8, 3, 8, 11, 11, 13]
+new_numbers = [1, 1, 1, 1, 5, 21, 21, 7, 7, 8, 3, 8, 11, 11, 11, 13]
 new_numbers.sort(reverse=True)
+freq_dict = {}
+sorted_list = []
+for number in new_numbers:
+    if number in freq_dict:
+        freq_dict[number] += 1
+    else:
+        freq_dict[number] = 1
+max_freq = max(freq_dict.values())
+for count in range(max_freq, 0, -1):
+    for number in freq_dict:
+        if freq_dict[number] == count:
+            sorted_list += [number] * count
+print(sorted_list)
 
 # task 5
 big_list = []
