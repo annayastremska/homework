@@ -18,7 +18,7 @@ for number in list_of_numbers:
 
 # task 5
 new_list = []
-any_number = int(input("number: "))
+any_number = int(input())
 for number in list_of_numbers:
     new_number = number * any_number
     new_list.append(new_number)
@@ -146,7 +146,6 @@ for count in range(max_freq, 0, -1):
     for number in freq_dict:
         if freq_dict[number] == count:
             sorted_list += [number] * count
-print(sorted_list)
 
 # task 5
 big_list = []
@@ -212,7 +211,7 @@ print("Середній рівень")
 print(f"1: {list_x_y}")
 print(f"2: {full_list}")
 print(f"3: {extracted_word}")
-print(f"4: {new_numbers}")
+print(f"4: {sorted_list}")
 print(f"5: {big_list}")
 print(f"6: {aggregated}")
 print(f"7: {updated_list}")
