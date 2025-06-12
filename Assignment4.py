@@ -6,14 +6,43 @@ words = ["apple", "bread", "candy", "dream", "eagle",
 max_tries = 6
 
 
+def play_game():
+    while True:
+        secret_word = generate_secret_word()
+        word_length
+        word_length = len(secret_word)
+        number_try = 1
+        print("Welcome to Wordle!")
+        print(
+            f"Guess the {word_length}-letter word. You have {max_tries} tries.")
+        while number_try < max_tries:
+            guess = player_guess(word_length, number_try)
+            number_try += 1
+
+            if guess == secret_word:
+                print("You win!!!")
+                break
+
+            result = the_result(secret_word, guess)
+            the_display(guess, result)
+        else:
+            print(f"You lose! The word was: {secret_word}")
+
+        while True:
+            play_again = input("Would you like to play again?\n")
+            if play_again == "yes":
+                break
+            elif play_again == "no":
+                return
+            else:
+                print("Please enter 'yes' or 'no'.")
+
+
 def generate_secret_word():
     return random.choice(words)
 
 
 def player_guess(word_length, number_try):
-    print("Welcome to Wordle!")
-    print(f"Guess the {word_length}-letter word. You have {max_tries} tries.")
-
     while number_try < max_tries:
         try:
             guess = input(f"Attempt {number_try}/6 – Enter guess: ").lower()
@@ -54,35 +83,6 @@ def the_display(guess, result):
         position += 1
 
     print("Result:", ' '.join(display))
-
-
-def play_game():
-    while True:
-        secret_word = generate_secret_word()
-        word_length = len(secret_word)
-        number_try = 1
-
-        while number_try < max_tries:
-            guess = player_guess(word_length, number_try)
-            number_try += 1
-
-            if guess == secret_word:
-                print("You win!!!")
-                break
-
-            result = the_result(secret_word, guess)
-            the_display(guess, result)
-        else:
-            print(f"You lose! The word was: {secret_word}")
-
-        while True:
-            play_again = input("Would you like to play again?\n")
-            if play_again == "yes":
-                break
-            elif play_again == "no":
-                return
-            else:
-                print("Please enter 'yes' or 'no'.")
 
 
 play_game()
